@@ -1,6 +1,6 @@
 import tkinter as tk
-#from PIL import Image, ImageTk
-import PIL
+from PIL import Image, ImageTk
+#import PIL
 from googletrans import Translator
 from VoiceRecognition import *
 
@@ -12,7 +12,6 @@ class App(tk.Frame):
         self.root = root
         self.text_input = ''
         self.voice_input = ''
-        self.output = ''
 
         # create window
         self.root.title("GUI Translator")
@@ -20,9 +19,9 @@ class App(tk.Frame):
         self.root.iconbitmap("christmas-tree.ico")
 
         # bg
-        a=PIL.
-        load = PIL.Image.open("bg.jpg")
-        render = PIL.ImageTk.PhotoImage(load)
+
+        load = Image.open("bg.jpg")
+        render = ImageTk.PhotoImage(load)
         img = tk.Label(self.root, image=render)
         img.place(x=0, y=0)
 
@@ -45,8 +44,8 @@ class App(tk.Frame):
                               command=self.translate)
         trans_button.place(x=290, y=310)
 
-        micro_button
-        audio_button
+        #micro_button
+        #audio_button
 
     def clear(self):
         self.box0.delete(1.0, tk.END)
@@ -64,10 +63,6 @@ class App(tk.Frame):
         translated = t.translate(inp, dest="vi")
         text = translated.text
         self.box1.insert(tk.END, text)
-
-    def insert_input(self):
-        inp = self.box0.get(1.0, tk.END)
-        #print(inp)
 
     def listen(self):
         voice = Voice()

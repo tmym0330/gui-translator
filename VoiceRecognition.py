@@ -25,10 +25,10 @@ class Voice:
             self.content = result
         except Exception as ex:
             print(ex)
-
+    '''
     def speak(self, translate_text):
         print(translate_text)
         self.engine.say(translate_text)
         self.engine.runAndWait()
 
-
+    '''
