@@ -44,7 +44,7 @@ class App:
                                  command=self.translate)
         trans_button.place(x=240, y=310)
 
-        add_button = tk.Button(button_frame, text="Add to Excel", font=("Arial", 10, 'bold'), bg="#303030",
+        add_button = tk.Button(button_frame, text="Add to List", font=("Arial", 10, 'bold'), bg="#303030",
                                fg="#FFFFFF", command=self.add_excel)
         add_button.place(x=350, y=310)
 
