@@ -16,7 +16,7 @@ class Voice:
             print("Clearing the noises...")
             self.recognizer.adjust_for_ambient_noise(source, duration=1)
             print("Hear")
-            audio = self.recognizer.listen(source, timeout=1)
+            audio = self.recognizer.listen(source, timeout=4)
             print("done")
         try:
             print("rec")
