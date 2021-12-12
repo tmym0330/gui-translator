@@ -71,7 +71,7 @@ class App:
         new_window = tk.Toplevel(self.root)
         new_window.title("Flashcard")
         new_window.geometry("600x350")
-        flashcard = Play()
+        flashcard = Flashcard()
         word = tk.Label(new_window, text=flashcard.word)
         word.config(font=("Arial", 25))
         word.pack(pady=50)

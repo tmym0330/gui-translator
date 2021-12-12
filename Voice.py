@@ -12,10 +12,8 @@ class Voice:
     def recognize(self):
         with sr.Microphone() as source:
             self.recognizer.adjust_for_ambient_noise(source, duration=1)
-            print("Hear")
             audio = self.recognizer.listen(source, timeout=4)
         try:
-            print("rec")
             result = self.recognizer.recognize_google(audio, language="en")
             print(result)
             self.content = result
