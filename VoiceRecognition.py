@@ -4,37 +4,31 @@ import speech_recognition as sr
 import pyttsx3
 
 
+class Voice:
+    """Rec and Speak the words"""
+    def __init__(self):
+        self.recognizer = sr.Recognizer()
+        self.engine = pyttsx3.init()
+        self.content = ''
 
-recognizer = sr.Recognizer()
-engine = pyttsx3.init()
+    def recognize(self):
+        with sr.Microphone() as source:
+            print("Clearing the noises...")
+            self.recognizer.adjust_for_ambient_noise(source, duration=1)
+            print("Hear")
+            audio = self.recognizer.listen(source, timeout=1)
+            print("done")
+        try:
+            print("rec")
+            result = self.recognizer.recognize_google(audio, language="en")
+            print(result)
+            self.content = result
+        except Exception as ex:
+            print(ex)
 
-with sr.Microphone() as source:
-    print("Clearing the noises...")
-    recognizer.adjust_for_ambient_noise(source, duration=1)
-    print("2")
-    audio = recognizer.listen(source, timeout=1)
-    print("done")
-try:
-    print("rec")
-    result = recognizer.recognize_google(audio, language="en")
-    print(result)
-except Exception as ex:
-    print(ex)
-
-# Trans
-engine.say("ready")
-engine.runAndWait()
-
-def trans():
-    lan_inp = input("Input lang: ")
-    translator = Translator()
-    translate_text = translator.translate(str(result), dest=lan_inp)
-    #bug??   File "C:\Users\Our Fam\anaconda3\lib\json\decoder.py", line 340, in decode
-    #raise JSONDecodeError("Extra data", s, end)
-    #json.decoder.JSONDecodeError: Extra data: line 1 column 584 (char 583)
-    print(translate_text.text)
-    engine.say(str(translate_text.text))
-    engine.runAndWait()
+    def speak(self, translate_text):
+        print(translate_text)
+        self.engine.say(translate_text)
+        self.engine.runAndWait()
 
 
-trans()
