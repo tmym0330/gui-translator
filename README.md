@@ -1,5 +1,5 @@
-A translation application for desktop
-- Translate 3 languages: English, French, Chinese into Vietnamese
+A translation application for the desktop with GUI
+- Translate 3 languages: English, French, and Chinese into Vietnamese
 - Speech to text
-- Add vocabolary to revise
+- Add vocabularies to revise
 - Play games with words
